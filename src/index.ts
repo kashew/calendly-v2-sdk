@@ -1,6 +1,7 @@
 export {
   EventTypesClient,
   OAuthClient,
+  OrganizationInvitationsClient,
   OrganizationMembershipsClient,
   ScheduledEventsClient,
   ScheduledEventInviteesClient,

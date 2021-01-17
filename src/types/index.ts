@@ -80,6 +80,16 @@ export {
 } from './schedulingLinks'
 
 export {
+  OrganizationInvitation,
+  OrganizationInvitationCreateOptions,
+  OrganizationInvitationEntity,
+  OrganizationInvitationList,
+  OrganizationInvitationOptions,
+  OrganizationInvitationSort,
+  OrganizationInvitationStatus
+} from './organizationInvitations'
+
+export {
   OrganizationMembership,
   OrganizationMembershipEntity,
   OrganizationMembershipList,

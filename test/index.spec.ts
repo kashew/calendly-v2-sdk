@@ -1,6 +1,6 @@
 import {
-  EventTypesClient, OAuthClient, OrganizationMembershipsClient, ScheduledEventInviteesClient,
-  ScheduledEventsClient, SchedulingLinksClient, UsersClient
+  EventTypesClient, OAuthClient, OrganizationInvitationsClient, OrganizationMembershipsClient,
+  ScheduledEventInviteesClient, ScheduledEventsClient, SchedulingLinksClient, UsersClient
 } from 'src'
 import { Token } from 'src/types'
 import { TokenFactory } from './factories'
@@ -23,6 +23,16 @@ describe('OAuthClient', () => {
     const client = new OAuthClient(clientId, clientSecret)
 
     expect(client).toBeInstanceOf(OAuthClient)
+  })
+})
+
+describe('OrganizationInvitationsClient', () => {
+  const organizationUuid = faker.random.uuid()
+
+  it('has OrganizationInvitationsClient', () => {
+    const client = new OrganizationInvitationsClient(token, organizationUuid)
+
+    expect(client).toBeInstanceOf(OrganizationInvitationsClient)
   })
 })
 
