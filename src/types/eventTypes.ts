@@ -73,8 +73,8 @@ export type EventType = {
   poolingType: PoolingType
   type: EventTypeType
   color: string
-  createdAt: string
-  updatedAt: string
+  createdAt: Date
+  updatedAt: Date
   internalNote: string
   descriptionPlain: string
   descriptionHtml: string

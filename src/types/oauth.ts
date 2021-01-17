@@ -21,30 +21,9 @@ export type TokenOptions = {
   refreshToken?: string
 }
 
-export type TokenParams = {
-  client_id: string
-  client_secret: string
-  code: string
-  grant_type: GrantType
-  redirect_uri: string
-  refresh_token: string
-}
-
-export type IntrospectParams = {
-  client_id: string
-  client_secret: string
-  token: string
-}
-
-export type RevokeParams = {
-  client_id: string
-  client_secret: string
-  token: string
-}
-
 export type Token = {
   accessToken: string,
-  createdAt: number,
+  createdAt: Date,
   expiresIn: number,
   organization: string,
   owner: string,
@@ -56,8 +35,8 @@ export type Token = {
 export type IntrospectResponse = {
   active: boolean
   clientId: string
-  exp: number
-  iat: number
+  expiresAt: Date
+  issuedAt: Date
   organization: string
   owner: string
   scope: string

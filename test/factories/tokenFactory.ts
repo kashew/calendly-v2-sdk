@@ -5,7 +5,7 @@ export default class TokenFactory {
   static create(): Token {
     return {
       accessToken: faker.random.uuid(),
-      createdAt: faker.random.number({ min: 1000000000, max: 9000000000 }),
+      createdAt: faker.date.recent(100),
       expiresIn: faker.random.number({ min: 1, max: 7200 }),
       organization: faker.internet.url(),
       owner: faker.internet.url(),

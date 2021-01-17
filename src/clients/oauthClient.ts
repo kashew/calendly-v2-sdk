@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 import {
-  IntrospectParams, IntrospectResponse, IntrospectResponseEntity, OAuthErrorEntity,
-  RevokeParams, Token, TokenEntity, TokenOptions, TokenParams,
+  IntrospectResponse, IntrospectResponseEntity, OAuthErrorEntity,
+  Token, TokenEntity, TokenOptions
 } from 'src/types'
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
 import OAuthError from '../errors/oauthError'
@@ -27,79 +27,72 @@ export default class OAuthClient {
     let response: AxiosResponse<TokenEntity>
 
     try {
-      response = await this.oauthApi.post('/oauth/token',
-        this.getTokenParams(options))
+      response = await this.oauthApi.post('/oauth/token', {
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        code: options.code,
+        grant_type: options.grantType,
+        redirect_uri: options.redirectUri,
+        refresh_token: options.refreshToken
+      })
     } catch (e) {
       throw this.getCalendlyError(e)
     }
 
-    return {
-      accessToken: response.data.access_token,
-      createdAt: response.data.created_at,
-      expiresIn: response.data.expires_in,
-      organization: response.data.organization,
-      owner: response.data.owner,
-      refreshToken: response.data.refresh_token,
-      scope: response.data.scope,
-      tokenType: response.data.token_type
-    }
+    return this.getToken(response.data)
   }
 
   public async introspect(token: string): Promise<IntrospectResponse> {
     let response: AxiosResponse<IntrospectResponseEntity>
 
     try {
-      response = await this.oauthApi.post('/oauth/introspect',
-        this.getIntrospectParams(token))
+      response = await this.oauthApi.post('/oauth/introspect', {
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        token
+      })
     } catch (e) {
       throw this.getCalendlyError(e)
     }
 
-    return {
-      active: response.data.active,
-      clientId: response.data.client_id,
-      exp: response.data.exp,
-      iat: response.data.iat,
-      organization: response.data.organization,
-      owner: response.data.owner,
-      scope: response.data.scope,
-      tokenType: response.data.token_type
-    }
+    return this.getIntrospectResponse(response.data)
   }
 
   public async revoke(token: string): Promise<void> {
     try {
-      await this.oauthApi.post('/oauth/revoke',
-        this.getRevokeParams(token))
+      await this.oauthApi.post('/oauth/revoke', {
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        token
+      })
     } catch (e) {
       throw this.getCalendlyError(e)
     }
   }
 
-  private getTokenParams(options: TokenOptions): TokenParams {
+  private getToken(entity: TokenEntity): Token {
     return {
-      client_id: this.clientId,
-      client_secret: this.clientSecret,
-      code: options.code,
-      grant_type: options.grantType,
-      redirect_uri: options.redirectUri,
-      refresh_token: options.refreshToken
+      accessToken: entity.access_token,
+      createdAt: new Date(entity.created_at * 1000),
+      expiresIn: entity.expires_in,
+      organization: entity.organization,
+      owner: entity.owner,
+      refreshToken: entity.refresh_token,
+      scope: entity.scope,
+      tokenType: entity.token_type
     }
   }
 
-  private getIntrospectParams(token: string): IntrospectParams {
+  private getIntrospectResponse(entity: IntrospectResponseEntity): IntrospectResponse {
     return {
-      client_id: this.clientId,
-      client_secret: this.clientSecret,
-      token
-    }
-  }
-
-  private getRevokeParams(token: string): RevokeParams {
-    return {
-      client_id: this.clientId,
-      client_secret: this.clientSecret,
-      token
+      active: entity.active,
+      clientId: entity.client_id,
+      expiresAt: new Date(entity.exp * 1000),
+      issuedAt: new Date(entity.iat * 1000),
+      organization: entity.organization,
+      owner: entity.owner,
+      scope: entity.scope,
+      tokenType: entity.token_type
     }
   }
 

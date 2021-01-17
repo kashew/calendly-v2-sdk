@@ -11,8 +11,8 @@ export default class UserFactory {
       scheduling_url: faker.internet.url(),
       timezone: faker.lorem.word(),
       avatar_url: faker.internet.url(),
-      created_at: faker.date.recent(100).toString(),
-      updated_at: faker.date.recent(100).toString()
+      created_at: faker.date.recent(100).toJSON(),
+      updated_at: faker.date.recent(100).toJSON()
     }
   }
 }

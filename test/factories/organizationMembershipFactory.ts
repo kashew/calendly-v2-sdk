@@ -9,8 +9,8 @@ export default class OrganizationMembershipFactory {
       role: faker.random.arrayElement(['owner', 'admin', 'user']),
       user: UserFactory.createEntity(),
       organization: faker.internet.url(),
-      updated_at: faker.date.recent(100).toString(),
-      created_at: faker.date.recent(100).toString()
+      updated_at: faker.date.recent(100).toJSON(),
+      created_at: faker.date.recent(100).toJSON()
     }
   }
 }

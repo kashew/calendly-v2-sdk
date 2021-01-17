@@ -12,12 +12,12 @@ export type UserEntity = {
 
 export type User = {
   avatarUrl: string
-  createdAt: string
+  createdAt: Date
   email: string
   name: string
   schedulingUrl: string
   slug: string
   timezone: string
-  updatedAt: string
+  updatedAt: Date
   uri: string
 }

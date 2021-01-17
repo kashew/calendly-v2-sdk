@@ -38,13 +38,13 @@ export default class UsersClient extends BaseClient {
   public static getUser(data: UserEntity): User {
     return {
       avatarUrl: data.avatar_url,
-      createdAt: data.created_at,
+      createdAt: new Date(data.created_at),
       email: data.email,
       name: data.name,
       schedulingUrl: data.scheduling_url,
       slug: data.slug,
       timezone: data.timezone,
-      updatedAt: data.updated_at,
+      updatedAt: new Date(data.updated_at),
       uri: data.uri
     }
   }

@@ -16,11 +16,9 @@ export default class SchedulingLinksClient extends BaseClient {
 
     try {
       response = await this.calendlyApi.post('/scheduling_links', {
-        params: {
-          max_event_count: options.maxEventCount,
-          owner: options.owner,
-          owner_type: options.ownerType
-        }
+        max_event_count: options.maxEventCount,
+        owner: options.owner,
+        owner_type: options.ownerType
       })
     } catch (e) {
       throw this.getCalendlyError(e)

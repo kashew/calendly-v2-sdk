@@ -163,13 +163,13 @@ export type ScheduledEvent = {
   uri: string
   name: string
   status: ScheduledEventStatus
-  startTime: string
-  endTime: string
+  startTime: Date
+  endTime: Date
   eventType: string
   location: MeetingLocation
   inviteesCounter: InviteesCounter
-  createdAt: string
-  updatedAt: string
+  createdAt: Date
+  updatedAt: Date
   eventMemberships: EventMembership[]
 }
 

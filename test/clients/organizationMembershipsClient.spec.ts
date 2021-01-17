@@ -32,13 +32,13 @@ describe('.get', () => {
         role: orgMemberEntity.role as OrganizationRole,
         user: {
           avatarUrl: orgMemberEntity.user.avatar_url,
-          createdAt: orgMemberEntity.user.created_at,
+          createdAt: new Date(orgMemberEntity.user.created_at),
           email: orgMemberEntity.user.email,
           name: orgMemberEntity.user.name,
           schedulingUrl: orgMemberEntity.user.scheduling_url,
           slug: orgMemberEntity.user.slug,
           timezone: orgMemberEntity.user.timezone,
-          updatedAt: orgMemberEntity.user.updated_at,
+          updatedAt: new Date(orgMemberEntity.user.updated_at),
           uri: orgMemberEntity.user.uri
         },
         organization: orgMemberEntity.organization,

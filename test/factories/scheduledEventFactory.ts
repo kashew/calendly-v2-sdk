@@ -8,8 +8,8 @@ export default class ScheduledEventFactory {
       uri: faker.internet.url(),
       name: faker.lorem.word(),
       status: faker.random.arrayElement(['active', 'canceled']),
-      start_time: JSON.stringify(faker.date.recent(100)),
-      end_time: JSON.stringify(faker.date.recent(100)),
+      start_time: faker.date.recent(100).toJSON(),
+      end_time: faker.date.recent(100).toJSON(),
       event_type: faker.internet.url(),
       location: LocationFactory.createEntity(locationType),
       invitees_counter: {
@@ -17,8 +17,8 @@ export default class ScheduledEventFactory {
         active: faker.random.number({ min: 1, max: 100 }),
         limit: faker.random.number({ min: 1, max: 100 })
       },
-      created_at: JSON.stringify(faker.date.recent(100)),
-      updated_at: JSON.stringify(faker.date.recent(100)),
+      created_at: faker.date.recent(100).toJSON(),
+      updated_at: faker.date.recent(100).toJSON(),
       event_memberships: this.getRandomEventMemberships()
     }
   }

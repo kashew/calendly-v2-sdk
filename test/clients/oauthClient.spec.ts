@@ -1,4 +1,4 @@
-import { GrantType } from 'src/types'
+import { GrantType, IntrospectResponse, Token } from 'src/types'
 import OAuthClient from 'src/clients/oauthClient'
 import OAuthError from 'src/errors/oauthError'
 import faker from 'faker'
@@ -64,9 +64,9 @@ describe('.token', () => {
           redirectUri
         })
 
-        await expect(result).resolves.toEqual({
+        await expect(result).resolves.toEqual<Token>({
           accessToken,
-          createdAt,
+          createdAt: new Date(createdAt * 1000),
           expiresIn,
           organization,
           owner,
@@ -148,9 +148,9 @@ describe('.token', () => {
         refreshToken
       })
 
-      await expect(result).resolves.toEqual({
+      await expect(result).resolves.toEqual<Token>({
         accessToken,
-        createdAt,
+        createdAt: new Date(createdAt * 1000),
         expiresIn,
         organization,
         owner,
@@ -193,11 +193,11 @@ describe('.introspect', () => {
     it('returns promise that resolves', async () => {
       const result = await client.introspect(token)
 
-      expect(result).toEqual({
+      expect(result).toEqual<IntrospectResponse>({
         active,
         clientId,
-        exp,
-        iat,
+        expiresAt: new Date(exp * 1000),
+        issuedAt: new Date(iat * 1000),
         organization,
         owner,
         scope,

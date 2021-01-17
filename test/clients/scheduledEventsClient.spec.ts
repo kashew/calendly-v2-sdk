@@ -45,16 +45,16 @@ describe('.get', () => {
           uri: scheduledEventEntity.uri,
           name: scheduledEventEntity.name,
           status: scheduledEventEntity.status as ScheduledEventStatus,
-          startTime: scheduledEventEntity.start_time,
-          endTime: scheduledEventEntity.end_time,
+          startTime: new Date(scheduledEventEntity.start_time),
+          endTime: new Date(scheduledEventEntity.end_time),
           eventType: scheduledEventEntity.event_type,
           location: {
             type: LocationType.Custom,
             location: locationEntity.location
           },
           inviteesCounter: scheduledEventEntity.invitees_counter,
-          createdAt: scheduledEventEntity.created_at,
-          updatedAt: scheduledEventEntity.updated_at,
+          createdAt: new Date(scheduledEventEntity.created_at),
+          updatedAt: new Date(scheduledEventEntity.updated_at),
           eventMemberships: scheduledEventEntity.event_memberships
         })
 
@@ -381,48 +381,48 @@ describe('.list', () => {
             uri: eventEntity1.uri,
             name: eventEntity1.name,
             status: eventEntity1.status as ScheduledEventStatus,
-            startTime: eventEntity1.start_time,
-            endTime: eventEntity1.end_time,
+            startTime: new Date(eventEntity1.start_time),
+            endTime: new Date(eventEntity1.end_time),
             eventType: eventEntity1.event_type,
             location: {
               type: LocationType.Custom,
               location: locationEntity1.location
             },
             inviteesCounter: eventEntity1.invitees_counter,
-            createdAt: eventEntity1.created_at,
-            updatedAt: eventEntity1.updated_at,
+            createdAt: new Date(eventEntity1.created_at),
+            updatedAt: new Date(eventEntity1.updated_at),
             eventMemberships: eventEntity1.event_memberships
           },
           {
             uri: eventEntity2.uri,
             name: eventEntity2.name,
             status: eventEntity2.status as ScheduledEventStatus,
-            startTime: eventEntity2.start_time,
-            endTime: eventEntity2.end_time,
+            startTime: new Date(eventEntity2.start_time),
+            endTime: new Date(eventEntity2.end_time),
             eventType: eventEntity2.event_type,
             location: {
               type: LocationType.Custom,
               location: locationEntity2.location
             },
             inviteesCounter: eventEntity2.invitees_counter,
-            createdAt: eventEntity2.created_at,
-            updatedAt: eventEntity2.updated_at,
+            createdAt: new Date(eventEntity2.created_at),
+            updatedAt: new Date(eventEntity2.updated_at),
             eventMemberships: eventEntity2.event_memberships
           },
           {
             uri: eventEntity3.uri,
             name: eventEntity3.name,
             status: eventEntity3.status as ScheduledEventStatus,
-            startTime: eventEntity3.start_time,
-            endTime: eventEntity3.end_time,
+            startTime: new Date(eventEntity3.start_time),
+            endTime: new Date(eventEntity3.end_time),
             eventType: eventEntity3.event_type,
             location: {
               type: LocationType.Custom,
               location: locationEntity3.location
             },
             inviteesCounter: eventEntity3.invitees_counter,
-            createdAt: eventEntity3.created_at,
-            updatedAt: eventEntity3.updated_at,
+            createdAt: new Date(eventEntity3.created_at),
+            updatedAt: new Date(eventEntity3.updated_at),
             eventMemberships: eventEntity3.event_memberships
           }
         ])
@@ -446,16 +446,16 @@ describe('.list', () => {
           uri: eventEntity1.uri,
           name: eventEntity1.name,
           status: eventEntity1.status as ScheduledEventStatus,
-          startTime: eventEntity1.start_time,
-          endTime: eventEntity1.end_time,
+          startTime: new Date(eventEntity1.start_time),
+          endTime: new Date(eventEntity1.end_time),
           eventType: eventEntity1.event_type,
           location: {
             type: LocationType.Custom,
             location: locationEntity1.location
           },
           inviteesCounter: eventEntity1.invitees_counter,
-          createdAt: eventEntity1.created_at,
-          updatedAt: eventEntity1.updated_at,
+          createdAt: new Date(eventEntity1.created_at),
+          updatedAt: new Date(eventEntity1.updated_at),
           eventMemberships: eventEntity1.event_memberships
         }
       ]

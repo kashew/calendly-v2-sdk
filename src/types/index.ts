@@ -29,14 +29,11 @@ export {
 
 export {
   GrantType,
-  IntrospectParams,
   IntrospectResponse,
   IntrospectResponseEntity,
-  RevokeParams,
   Token,
   TokenEntity,
   TokenOptions,
-  TokenParams,
 } from './oauth'
 
 export {

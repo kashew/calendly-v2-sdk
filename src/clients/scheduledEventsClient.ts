@@ -64,119 +64,119 @@ export default class ScheduledEventsClient extends BaseClient {
     }
   }
 
-  private getScheduledEvent(data: ScheduledEventEntity): ScheduledEvent {
+  private getScheduledEvent(entity: ScheduledEventEntity): ScheduledEvent {
     return {
-      uri: data.uri,
-      name: data.name,
-      status: data.status as ScheduledEventStatus,
-      startTime: data.start_time,
-      endTime: data.end_time,
-      eventType: data.event_type,
-      location: this.getLocation(data.location),
+      uri: entity.uri,
+      name: entity.name,
+      status: entity.status as ScheduledEventStatus,
+      startTime: new Date(entity.start_time),
+      endTime: new Date(entity.end_time),
+      eventType: entity.event_type,
+      location: this.getLocation(entity.location),
       inviteesCounter: {
-        active: data.invitees_counter.active,
-        limit: data.invitees_counter.limit,
-        total: data.invitees_counter.total
+        active: entity.invitees_counter.active,
+        limit: entity.invitees_counter.limit,
+        total: entity.invitees_counter.total
       },
-      createdAt: data.created_at,
-      updatedAt: data.updated_at,
-      eventMemberships: data.event_memberships
+      createdAt: new Date(entity.created_at),
+      updatedAt: new Date(entity.updated_at),
+      eventMemberships: entity.event_memberships
     }
   }
 
-  private getLocation(data: MeetingLocationEntity): MeetingLocation {
-    switch(data.type as LocationType) {
+  private getLocation(entity: MeetingLocationEntity): MeetingLocation {
+    switch(entity.type as LocationType) {
       case LocationType.Custom:
-        return this.getCustomLocation(data as CustomLocationEntity)
+        return this.getCustomLocation(entity as CustomLocationEntity)
       case LocationType.GoToMeetingConference:
-        return this.getGoToMeetingLocation(data as GoToMeetingConferenceEntity)
+        return this.getGoToMeetingLocation(entity as GoToMeetingConferenceEntity)
       case LocationType.GoogleConference:
-        return this.getGoogleLocation(data as GoogleConferenceEntity)
+        return this.getGoogleLocation(entity as GoogleConferenceEntity)
       case LocationType.InPersonMeeting:
-        return this.getInPersonLocation(data as InPersonMeetingEntity)
+        return this.getInPersonLocation(entity as InPersonMeetingEntity)
       case LocationType.InboundCall:
-        return this.getInboundCallLocation(data as InboundCallEntity)
+        return this.getInboundCallLocation(entity as InboundCallEntity)
       case LocationType.InviteeSpecified:
-        return this.getInviteeSpecifiedLocation(data as InviteeSpecifiedLocationEntity)
+        return this.getInviteeSpecifiedLocation(entity as InviteeSpecifiedLocationEntity)
       case LocationType.MicrosoftTeamsConference:
-        return this.getMicrosoftTeamsLocation(data as MicrosoftTeamsConferenceEntity)
+        return this.getMicrosoftTeamsLocation(entity as MicrosoftTeamsConferenceEntity)
       case LocationType.OutboundCall:
-        return this.getOutboundCallLocation(data as OutboundCallEntity)
+        return this.getOutboundCallLocation(entity as OutboundCallEntity)
       case LocationType.ZoomConference:
-        return this.getZoomLocation(data as ZoomConferenceEntity)
+        return this.getZoomLocation(entity as ZoomConferenceEntity)
     }
   }
 
-  private getCustomLocation(data: CustomLocationEntity): CustomLocation {
+  private getCustomLocation(entity: CustomLocationEntity): CustomLocation {
     return {
       type: LocationType.Custom,
-      location: data.location
+      location: entity.location
     }
   }
 
-  private getGoToMeetingLocation(data: GoToMeetingConferenceEntity): GoToMeetingConference {
+  private getGoToMeetingLocation(entity: GoToMeetingConferenceEntity): GoToMeetingConference {
     return {
       type: LocationType.GoToMeetingConference,
-      status: data.status as ConferenceStatus,
-      joinUrl: data.join_url,
-      data: data.data
+      status: entity.status as ConferenceStatus,
+      joinUrl: entity.join_url,
+      data: entity.data
     }
   }
 
-  private getGoogleLocation(data: GoogleConferenceEntity): GoogleConference {
+  private getGoogleLocation(entity: GoogleConferenceEntity): GoogleConference {
     return {
       type: LocationType.GoogleConference,
-      status: data.status,
-      joinUrl: data.join_url
+      status: entity.status,
+      joinUrl: entity.join_url
     }
   }
 
-  private getInPersonLocation(data: InPersonMeetingEntity): InPersonMeeting {
+  private getInPersonLocation(entity: InPersonMeetingEntity): InPersonMeeting {
     return {
       type: LocationType.InPersonMeeting,
-      location: data.location
+      location: entity.location
     }
   }
 
-  private getInboundCallLocation(data: InboundCallEntity): InboundCall {
+  private getInboundCallLocation(entity: InboundCallEntity): InboundCall {
     return {
       type: LocationType.InboundCall,
-      location: data.location
+      location: entity.location
     }
   }
 
-  private getInviteeSpecifiedLocation(data: InviteeSpecifiedLocationEntity): InviteeSpecifiedLocation {
+  private getInviteeSpecifiedLocation(entity: InviteeSpecifiedLocationEntity): InviteeSpecifiedLocation {
     return {
       type: LocationType.InviteeSpecified,
-      location: data.location
+      location: entity.location
     }
   }
 
-  private getMicrosoftTeamsLocation(data: MicrosoftTeamsConferenceEntity): MicrosoftTeamsConference {
+  private getMicrosoftTeamsLocation(entity: MicrosoftTeamsConferenceEntity): MicrosoftTeamsConference {
     return {
       type: LocationType.MicrosoftTeamsConference,
-      status: data.status as ConferenceStatus,
-      joinUrl: data.join_url,
-      data: data.data
+      status: entity.status as ConferenceStatus,
+      joinUrl: entity.join_url,
+      data: entity.data
     }
   }
 
-  private getOutboundCallLocation(data: OutboundCallEntity): OutboundCall {
+  private getOutboundCallLocation(entity: OutboundCallEntity): OutboundCall {
     return {
       type: LocationType.OutboundCall,
-      location: data.location
+      location: entity.location
     }
   }
 
-  private getZoomLocation(data: ZoomConferenceEntity): ZoomConference {
+  private getZoomLocation(entity: ZoomConferenceEntity): ZoomConference {
     return {
       type: LocationType.ZoomConference,
-      status: data.status as ConferenceStatus,
-      joinUrl: data.join_url,
+      status: entity.status as ConferenceStatus,
+      joinUrl: entity.join_url,
       data: {
-        id: data.data.id,
+        id: entity.data.id,
         settings: {
-          globalDialInNumbers: data.data.settings.global_dial_in_numbers.map(record => {
+          globalDialInNumbers: entity.data.settings.global_dial_in_numbers.map(record => {
             return {
               number: record.number,
               country: record.country,
@@ -187,9 +187,9 @@ export default class ScheduledEventsClient extends BaseClient {
           })
         },
         extra: {
-          intlNumbersUrl: data.data.extra.intl_numbers_url
+          intlNumbersUrl: entity.data.extra.intl_numbers_url
         },
-        password: data.data.password
+        password: entity.data.password
       }
     }
   }

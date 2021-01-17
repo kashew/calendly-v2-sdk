@@ -31,13 +31,13 @@ describe('.me', () => {
 
       await expect(result).resolves.toEqual<User>({
         avatarUrl: userEntity.avatar_url,
-        createdAt: userEntity.created_at,
+        createdAt: new Date(userEntity.created_at),
         email: userEntity.email,
         name: userEntity.name,
         schedulingUrl: userEntity.scheduling_url,
         slug: userEntity.slug,
         timezone: userEntity.timezone,
-        updatedAt: userEntity.updated_at,
+        updatedAt: new Date(userEntity.updated_at),
         uri: userEntity.uri
       })
     })
@@ -110,13 +110,13 @@ describe('.get', () => {
 
       await expect(result).resolves.toEqual<User>({
         avatarUrl: userEntity.avatar_url,
-        createdAt: userEntity.created_at,
+        createdAt: new Date(userEntity.created_at),
         email: userEntity.email,
         name: userEntity.name,
         schedulingUrl: userEntity.scheduling_url,
         slug: userEntity.slug,
         timezone: userEntity.timezone,
-        updatedAt: userEntity.updated_at,
+        updatedAt: new Date(userEntity.updated_at),
         uri: userEntity.uri
       })
     })
