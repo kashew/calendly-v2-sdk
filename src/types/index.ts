@@ -66,6 +66,13 @@ export {
 } from './scheduledEvents'
 
 export {
+  SchedulingLink,
+  SchedulingLinkCreateOptions,
+  SchedulingLinkEntity,
+  SchedulingLinkOwnerType
+} from './schedulingLinks'
+
+export {
   CalendlyErrorDetail,
   CalendlyErrorEntity,
   OAuthErrorEntity

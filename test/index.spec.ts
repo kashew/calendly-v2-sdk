@@ -1,6 +1,6 @@
 import faker from 'faker'
 import { TokenFactory } from './factories'
-import { EventTypesClient, OAuthClient, ScheduledEventInviteesClient, ScheduledEventsClient, UsersClient } from 'src'
+import { EventTypesClient, OAuthClient, ScheduledEventInviteesClient, SchedulingLinksClient, ScheduledEventsClient, UsersClient } from 'src'
 import { Token } from 'src/types'
 
 const clientId = faker.random.uuid()
@@ -38,6 +38,14 @@ describe('ScheduledEventInviteesClient', () => {
     const client = new ScheduledEventInviteesClient(token, scheduledEventUuid)
 
     expect(client).toBeInstanceOf(ScheduledEventInviteesClient)
+  })
+})
+
+describe('SchedulingLinksClient', () => {
+  it('has SchedulingLinksClient', () => {
+    const client = new SchedulingLinksClient(token)
+
+    expect(client).toBeInstanceOf(SchedulingLinksClient)
   })
 })
 
