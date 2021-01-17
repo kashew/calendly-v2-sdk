@@ -1,7 +1,8 @@
 export {
-  UserEntity,
-  User
-} from './users'
+  CalendlyErrorDetail,
+  CalendlyErrorEntity,
+  OAuthErrorEntity
+} from './errors'
 
 export {
   EventType,
@@ -16,6 +17,15 @@ export {
   ProfileEntity,
   ProfileType
 } from './eventTypes'
+
+export {
+  Invitee,
+  InviteeEntity,
+  InviteeList,
+  InviteeOptions,
+  InviteeSort,
+  InviteeStatus
+} from './invitees'
 
 export {
   GrantType,
@@ -73,19 +83,15 @@ export {
 } from './schedulingLinks'
 
 export {
-  CalendlyErrorDetail,
-  CalendlyErrorEntity,
-  OAuthErrorEntity
-} from './errors'
+  OrganizationMembership,
+  OrganizationMembershipEntity,
+  OrganizationRole
+} from './organizationMemberships'
 
 export {
-  Invitee,
-  InviteeEntity,
-  InviteeList,
-  InviteeOptions,
-  InviteeSort,
-  InviteeStatus
-} from './invitees'
+  UserEntity,
+  User
+} from './users'
 
 export type PaginationEntity = {
   count: number,

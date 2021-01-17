@@ -1,7 +1,7 @@
-import { AxiosResponse } from 'axios'
-import BaseClient from './baseClient'
 import * as dotenv from 'dotenv'
 import { Token, User, UserEntity } from 'src/types'
+import { AxiosResponse } from 'axios'
+import BaseClient from './baseClient'
 
 export default class UsersClient extends BaseClient {
   constructor(token: Token) {
@@ -20,7 +20,7 @@ export default class UsersClient extends BaseClient {
       throw this.getCalendlyError(e)
     }
 
-    return this.getUser(response.data.resource)
+    return UsersClient.getUser(response.data.resource)
   }
 
   public async me(): Promise<User> {
@@ -32,10 +32,10 @@ export default class UsersClient extends BaseClient {
       throw this.getCalendlyError(e)
     }
 
-    return this.getUser(response.data.resource)
+    return UsersClient.getUser(response.data.resource)
   }
 
-  private getUser(data: UserEntity): User {
+  public static getUser(data: UserEntity): User {
     return {
       avatarUrl: data.avatar_url,
       createdAt: data.created_at,

@@ -1,11 +1,22 @@
-import faker from 'faker'
-import { TokenFactory } from './factories'
-import { EventTypesClient, OAuthClient, ScheduledEventInviteesClient, SchedulingLinksClient, ScheduledEventsClient, UsersClient } from 'src'
+import {
+  EventTypesClient, OAuthClient, OrganizationMembershipsClient, ScheduledEventInviteesClient,
+  ScheduledEventsClient, SchedulingLinksClient, UsersClient
+} from 'src'
 import { Token } from 'src/types'
+import { TokenFactory } from './factories'
+import faker from 'faker'
 
 const clientId = faker.random.uuid()
 const clientSecret = faker.random.uuid()
 const token: Token = TokenFactory.create()
+
+describe('EventTypesClient', () => {
+  it('has EventTypesClient', () => {
+    const client = new EventTypesClient(token)
+
+    expect(client).toBeInstanceOf(EventTypesClient)
+  })
+})
 
 describe('OAuthClient', () => {
   it('has OAuthClient', () => {
@@ -15,11 +26,11 @@ describe('OAuthClient', () => {
   })
 })
 
-describe('EventTypesClient', () => {
-  it('has EventTypesClient', () => {
-    const client = new EventTypesClient(token)
+describe('OrganizationMembershipsClient', () => {
+  it('has OrganizationMembershipsClient', () => {
+    const client = new OrganizationMembershipsClient(token)
 
-    expect(client).toBeInstanceOf(EventTypesClient)
+    expect(client).toBeInstanceOf(OrganizationMembershipsClient)
   })
 })
 

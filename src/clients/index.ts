@@ -1,15 +1,17 @@
 import EventTypesClient from './eventTypesClient'
 import OAuthClient from './oauthClient'
-import ScheduledEventsClient from './scheduledEventsClient'
+import OrganizationMembershipsClient from './organizationMembershipsClient'
 import ScheduledEventInviteesClient from './scheduledEventInviteesClient'
-import UsersClient from './usersClient'
+import ScheduledEventsClient from './scheduledEventsClient'
 import SchedulingLinksClient from './schedulingLinksClient'
+import UsersClient from './usersClient'
 
 export {
   EventTypesClient,
   OAuthClient,
-  ScheduledEventsClient,
+  OrganizationMembershipsClient,
   ScheduledEventInviteesClient,
+  ScheduledEventsClient,
   SchedulingLinksClient,
   UsersClient
 }

@@ -1,9 +1,9 @@
+import { Token, User } from 'src/types'
+import { TokenFactory, UserFactory } from '../factories'
+import CalendlyError from 'src/errors/calendlyError'
 import UsersClient from 'src/clients/usersClient'
 import faker from 'faker'
 import nock from 'nock'
-import CalendlyError from 'src/errors/calendlyError'
-import { Token, User } from 'src/types'
-import { TokenFactory } from '../factories'
 
 const token: Token = TokenFactory.create()
 const client = new UsersClient(token)
@@ -13,15 +13,7 @@ it('creates new calendly client', () => {
 })
 
 describe('.me', () => {
-  const uri = faker.internet.url()
-  const name = faker.name.firstName()
-  const slug = faker.lorem.word()
-  const email = faker.internet.email()
-  const schedulingUrl = faker.internet.url()
-  const timezone = faker.lorem.word()
-  const avatarUrl = faker.internet.url()
-  const createdAt = faker.date.recent(100).toString()
-  const updatedAt = faker.date.recent(100).toString()
+  const userEntity = UserFactory.createEntity()
 
   describe('when response status is ok', () => {
     beforeAll(() => {
@@ -30,17 +22,7 @@ describe('.me', () => {
           authorization: `${token.tokenType} ${token.accessToken}`
         }
       }).get('/users/me').reply(200, {
-        resource: {
-          uri,
-          name,
-          slug,
-          email,
-          scheduling_url: schedulingUrl,
-          timezone,
-          avatar_url: avatarUrl,
-          created_at: createdAt,
-          updated_at: updatedAt
-        }
+        resource: userEntity
       })
     })
 
@@ -48,15 +30,15 @@ describe('.me', () => {
       const result = client.me()
 
       await expect(result).resolves.toEqual<User>({
-        avatarUrl,
-        createdAt,
-        email,
-        name,
-        schedulingUrl,
-        slug,
-        timezone,
-        updatedAt,
-        uri
+        avatarUrl: userEntity.avatar_url,
+        createdAt: userEntity.created_at,
+        email: userEntity.email,
+        name: userEntity.name,
+        schedulingUrl: userEntity.scheduling_url,
+        slug: userEntity.slug,
+        timezone: userEntity.timezone,
+        updatedAt: userEntity.updated_at,
+        uri: userEntity.uri
       })
     })
   })
@@ -110,16 +92,8 @@ describe('.me', () => {
 
 describe('.get', () => {
   describe('when response status is ok', () => {
-    const uuid = faker.random.alphaNumeric(8)
-    const uri = faker.internet.url()
-    const name = faker.name.firstName()
-    const slug = faker.lorem.word()
-    const email = faker.internet.email()
-    const schedulingUrl = faker.internet.url()
-    const timezone = faker.lorem.word()
-    const avatarUrl = faker.internet.url()
-    const createdAt = faker.date.recent(100).toString()
-    const updatedAt = faker.date.recent(100).toString()
+    const uuid = faker.random.alphaNumeric(16)
+    const userEntity = UserFactory.createEntity()
 
     beforeAll(() => {
       nock('https://api.calendly.com', {
@@ -127,17 +101,7 @@ describe('.get', () => {
           authorization: `${token.tokenType} ${token.accessToken}`
         }
       }).get(`/users/${uuid}`).reply(200, {
-        resource: {
-          uri,
-          name,
-          slug,
-          email,
-          scheduling_url: schedulingUrl,
-          timezone,
-          avatar_url: avatarUrl,
-          created_at: createdAt,
-          updated_at: updatedAt
-        }
+        resource: userEntity
       })
     })
 
@@ -145,15 +109,15 @@ describe('.get', () => {
       const result = client.get(uuid)
 
       await expect(result).resolves.toEqual<User>({
-        avatarUrl,
-        createdAt,
-        email,
-        name,
-        schedulingUrl,
-        slug,
-        timezone,
-        updatedAt,
-        uri
+        avatarUrl: userEntity.avatar_url,
+        createdAt: userEntity.created_at,
+        email: userEntity.email,
+        name: userEntity.name,
+        schedulingUrl: userEntity.scheduling_url,
+        slug: userEntity.slug,
+        timezone: userEntity.timezone,
+        updatedAt: userEntity.updated_at,
+        uri: userEntity.uri
       })
     })
   })
