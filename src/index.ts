@@ -6,5 +6,6 @@ export {
   ScheduledEventsClient,
   ScheduledEventInviteesClient,
   SchedulingLinksClient,
-  UsersClient
+  UsersClient,
+  WebhookSubscriptionsClient
 } from 'src/clients'

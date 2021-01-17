@@ -6,6 +6,7 @@ import ScheduledEventInviteesClient from './scheduledEventInviteesClient'
 import ScheduledEventsClient from './scheduledEventsClient'
 import SchedulingLinksClient from './schedulingLinksClient'
 import UsersClient from './usersClient'
+import WebhookSubscriptionsClient from './webhookSubscriptionsClient'
 
 export {
   EventTypesClient,
@@ -15,5 +16,6 @@ export {
   ScheduledEventInviteesClient,
   ScheduledEventsClient,
   SchedulingLinksClient,
-  UsersClient
+  UsersClient,
+  WebhookSubscriptionsClient
 }

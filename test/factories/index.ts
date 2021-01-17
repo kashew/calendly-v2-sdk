@@ -7,6 +7,7 @@ import ScheduledEventFactory from './scheduledEventFactory'
 import SchedulingLinkFactory from './schedulingLinkFactory'
 import TokenFactory from './tokenFactory'
 import UserFactory from './userFactory'
+import WebhookSubscriptionFactory from './webhookSubscriptionFactory'
 
 export {
   EventTypeFactory,
@@ -17,5 +18,6 @@ export {
   ScheduledEventFactory,
   SchedulingLinkFactory,
   TokenFactory,
-  UserFactory
+  UserFactory,
+  WebhookSubscriptionFactory
 }

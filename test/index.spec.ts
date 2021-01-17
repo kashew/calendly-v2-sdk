@@ -1,6 +1,7 @@
 import {
   EventTypesClient, OAuthClient, OrganizationInvitationsClient, OrganizationMembershipsClient,
-  ScheduledEventInviteesClient, ScheduledEventsClient, SchedulingLinksClient, UsersClient
+  ScheduledEventInviteesClient, ScheduledEventsClient, SchedulingLinksClient, UsersClient,
+  WebhookSubscriptionsClient
 } from 'src'
 import { Token } from 'src/types'
 import { TokenFactory } from './factories'
@@ -75,5 +76,13 @@ describe('UsersClient', () => {
     const client = new UsersClient(token)
 
     expect(client).toBeInstanceOf(UsersClient)
+  })
+})
+
+describe('WebhookSubscriptionsClient', () => {
+  it('has WebhookSubscriptionsClient', () => {
+    const client = new WebhookSubscriptionsClient(token)
+
+    expect(client).toBeInstanceOf(WebhookSubscriptionsClient)
   })
 })

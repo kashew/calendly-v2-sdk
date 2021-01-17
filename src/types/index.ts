@@ -102,6 +102,14 @@ export {
   User
 } from './users'
 
+export {
+  WebhookSubscription,
+  WebhookSubscriptionEntity,
+  WebhookSubscriptionEvent,
+  WebhookSubscriptionScope,
+  WebhookSubscriptionState
+} from './webhookSubscriptions'
+
 export type PaginationEntity = {
   count: number,
   next_page: string
