@@ -1,9 +1,9 @@
-import faker from 'faker'
-import EventTypesClient from 'src/clients/eventTypesClient'
-import nock from 'nock'
-import CalendlyError from 'src/errors/calendlyError'
 import { EventType, EventTypeList, EventTypeSort, EventTypeType, Kind, Pagination, PoolingType, ProfileType, Token } from 'src/types'
 import { EventTypeFactory, TokenFactory } from '../factories'
+import CalendlyError from 'src/errors/calendlyError'
+import EventTypesClient from 'src/clients/eventTypesClient'
+import faker from 'faker'
+import nock from 'nock'
 
 const token: Token = TokenFactory.create()
 

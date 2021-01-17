@@ -1,7 +1,7 @@
-import { SchedulingLink, SchedulingLinkCreateOptions, SchedulingLinkEntity, SchedulingLinkOwnerType, Token } from 'src/types'
 import * as dotenv from 'dotenv'
-import BaseClient from './baseClient'
+import { SchedulingLink, SchedulingLinkCreateOptions, SchedulingLinkEntity, SchedulingLinkOwnerType, Token } from 'src/types'
 import { AxiosResponse } from 'axios'
+import BaseClient from './baseClient'
 
 export default class SchedulingLinksClient extends BaseClient {
   constructor(token: Token) {

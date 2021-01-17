@@ -1,5 +1,5 @@
-import faker from 'faker'
 import { Token } from 'src/types'
+import faker from 'faker'
 
 export default class TokenFactory {
   static create(): Token {

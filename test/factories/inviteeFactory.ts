@@ -1,5 +1,5 @@
-import faker from 'faker'
 import { InviteeEntity } from 'src/types'
+import faker from 'faker'
 
 export default class InviteeFactory {
   public static createEntity(): InviteeEntity {

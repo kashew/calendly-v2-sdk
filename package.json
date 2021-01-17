@@ -10,7 +10,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "lint": "eslint -c .eslintrc.js --ext .ts src",
+    "lint": "eslint -c .eslintrc.js --ext .ts src test",
     "build": "rollup -c && tsc -p tsconfig.prod.json",
     "watch": "rollup -cw",
     "prepare": "npm run test"

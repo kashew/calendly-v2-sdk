@@ -19,6 +19,7 @@ module.exports = {
   "ignorePatterns": [ ".eslintrc.js", "jest.config.js", "rollup.config.js" ],
   "rules": {
     "semi": [ "error", "never" ],
-    "quotes": [ "error", "single" ]
+    "quotes": [ "error", "single" ],
+    "sort-imports": [ "error" ]
   }
 };

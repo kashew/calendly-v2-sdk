@@ -1,8 +1,8 @@
+import { GrantType } from 'src/types'
 import OAuthClient from 'src/clients/oauthClient'
+import OAuthError from 'src/errors/oauthError'
 import faker from 'faker'
 import nock from 'nock'
-import OAuthError from 'src/errors/oauthError'
-import { GrantType } from 'src/types'
 
 const clientId = faker.random.uuid()
 const clientSecret = faker.random.uuid()
@@ -108,7 +108,7 @@ describe('.token', () => {
           result = e as OAuthError
         }
 
-        expect(result.message).toEqual("Request failed with status code 401")
+        expect(result.message).toEqual('Request failed with status code 401')
         expect(result.status).toEqual(401)
         expect(result.details).toEqual(errorDetails)
       })
@@ -232,7 +232,7 @@ describe('.introspect', () => {
       }
 
       expect(result).toBeInstanceOf(OAuthError)
-      expect(result.message).toEqual("Request failed with status code 401")
+      expect(result.message).toEqual('Request failed with status code 401')
       expect(result.status).toEqual(401)
       expect(result.details).toEqual(errorDetails)
     })
@@ -285,7 +285,7 @@ describe('.revoke', () => {
       }
 
       expect(result).toBeInstanceOf(OAuthError)
-      expect(result.message).toEqual("Request failed with status code 403")
+      expect(result.message).toEqual('Request failed with status code 403')
       expect(result.status).toEqual(403)
       expect(result.details).toEqual(errorDetails)
     })

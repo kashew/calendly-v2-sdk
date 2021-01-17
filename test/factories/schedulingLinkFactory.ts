@@ -1,5 +1,5 @@
-import faker from 'faker'
 import { SchedulingLinkEntity } from 'src/types'
+import faker from 'faker'
 
 export default class SchedulingLinkFactory {
   public static createEntity(): SchedulingLinkEntity {

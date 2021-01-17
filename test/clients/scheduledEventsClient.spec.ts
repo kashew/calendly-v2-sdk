@@ -1,17 +1,17 @@
-import faker from 'faker'
-import nock from 'nock'
+import {
+  ConferenceStatus, CustomLocation, CustomLocationEntity, GoToMeetingConference,
+  GoToMeetingConferenceEntity, GoogleConference, GoogleConferenceEntity,
+  InPersonMeeting, InPersonMeetingEntity, InboundCall, InboundCallEntity,
+  InviteeSpecifiedLocation, InviteeSpecifiedLocationEntity, LocationType,
+  MicrosoftTeamsConference, MicrosoftTeamsConferenceEntity, OutboundCall,
+  OutboundCallEntity, Pagination, ScheduledEvent, ScheduledEventList,
+  ScheduledEventSort, ScheduledEventStatus, Token, ZoomConference, ZoomConferenceEntity
+} from 'src/types'
 import { ScheduledEventFactory, TokenFactory } from '../factories'
 import CalendlyError from 'src/errors/calendlyError'
 import ScheduledEventsClient from 'src/clients/scheduledEventsClient'
-import {
-  ConferenceStatus, CustomLocation, CustomLocationEntity, GoogleConference,
-  GoogleConferenceEntity, GoToMeetingConference, GoToMeetingConferenceEntity,
-  LocationType, ScheduledEvent, ScheduledEventStatus, Token, InPersonMeetingEntity,
-  InPersonMeeting, InboundCallEntity, InboundCall, InviteeSpecifiedLocationEntity,
-  InviteeSpecifiedLocation, MicrosoftTeamsConferenceEntity, MicrosoftTeamsConference,
-  OutboundCallEntity, OutboundCall, ZoomConferenceEntity, ZoomConference, Pagination,
-  ScheduledEventList, ScheduledEventSort
-} from 'src/types'
+import faker from 'faker'
+import nock from 'nock'
 
 const token: Token = TokenFactory.create()
 

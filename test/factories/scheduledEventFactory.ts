@@ -1,6 +1,6 @@
-import faker from 'faker'
-import { LocationFactory } from '.'
 import { EventMembership, LocationType, ScheduledEventEntity } from 'src/types'
+import { LocationFactory } from '.'
+import faker from 'faker'
 
 export default class ScheduledEventFactory {
   public static createEntity(locationType?: LocationType): ScheduledEventEntity {

@@ -1,9 +1,9 @@
-import faker from 'faker'
-import { InviteeFactory, TokenFactory } from '../factories'
 import { Invitee, InviteeList, InviteeSort, InviteeStatus, Pagination, Token } from 'src/types'
-import ScheduledEventInviteesClient from 'src/clients/scheduledEventInviteesClient'
-import nock from 'nock'
+import { InviteeFactory, TokenFactory } from '../factories'
 import CalendlyError from 'src/errors/calendlyError'
+import ScheduledEventInviteesClient from 'src/clients/scheduledEventInviteesClient'
+import faker from 'faker'
+import nock from 'nock'
 
 const token: Token = TokenFactory.create()
 const scheduledEventUuid = faker.random.uuid()

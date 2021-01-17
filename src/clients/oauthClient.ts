@@ -1,10 +1,10 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
-import OAuthError from '../errors/oauthError'
 import * as dotenv from 'dotenv'
 import {
-  TokenOptions, Token, IntrospectResponse, TokenParams, IntrospectParams,
-  RevokeParams, TokenEntity, OAuthErrorEntity, IntrospectResponseEntity
+  IntrospectParams, IntrospectResponse, IntrospectResponseEntity, OAuthErrorEntity,
+  RevokeParams, Token, TokenEntity, TokenOptions, TokenParams,
 } from 'src/types'
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
+import OAuthError from '../errors/oauthError'
 
 export default class OAuthClient {
   private oauthApi: AxiosInstance
