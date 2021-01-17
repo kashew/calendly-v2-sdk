@@ -1,7 +1,10 @@
-import { AxiosResponse } from "axios"
-import BaseClient from "./baseClient"
+import { AxiosResponse } from 'axios'
+import BaseClient from './baseClient'
 import * as dotenv from 'dotenv'
-import { EventType, EventTypeEntity, EventTypeList, EventTypeOptions, EventTypeType, Kind, PaginationEntity, PoolingType, Profile, ProfileEntity, ProfileType, Token } from "../types"
+import {
+  EventType, EventTypeEntity, EventTypeList, EventTypeOptions, EventTypeType,
+  Kind, PaginationEntity, PoolingType, Profile, ProfileEntity, ProfileType,
+  Token } from 'src/types'
 
 export default class EventTypesClient extends BaseClient {
   constructor(token: Token) {

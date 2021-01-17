@@ -1,6 +1,6 @@
-import axios, { AxiosError, AxiosInstance } from "axios"
-import CalendlyError from "../errors/calendlyError"
-import { CalendlyErrorEntity, Pagination, PaginationEntity, Token } from "../types"
+import axios, { AxiosError, AxiosInstance } from 'axios'
+import CalendlyError from '../errors/calendlyError'
+import { CalendlyErrorEntity, Pagination, PaginationEntity, Token } from 'src/types'
 
 export default abstract class BaseClient {
   protected token: Token

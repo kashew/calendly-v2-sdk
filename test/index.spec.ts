@@ -1,7 +1,7 @@
 import faker from 'faker'
 import { TokenFactory } from './factories'
-import { EventTypesClient, OAuthClient, ScheduledEventInviteesClient, ScheduledEventsClient, UsersClient } from '../src'
-import { Token } from '../src/types'
+import { EventTypesClient, OAuthClient, ScheduledEventInviteesClient, ScheduledEventsClient, UsersClient } from 'src'
+import { Token } from 'src/types'
 
 const clientId = faker.random.uuid()
 const clientSecret = faker.random.uuid()

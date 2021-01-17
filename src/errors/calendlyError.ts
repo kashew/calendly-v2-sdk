@@ -1,4 +1,4 @@
-import { CalendlyErrorDetail } from "../types"
+import { CalendlyErrorDetail } from 'src/types'
 
 export default class CalendlyError extends Error {
   public title: string

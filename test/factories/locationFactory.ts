@@ -1,5 +1,9 @@
-import faker from 'faker';
-import { ConferenceStatus, CustomLocationEntity, GoogleConferenceEntity, GoToMeetingConferenceData, GoToMeetingConferenceEntity, InboundCallEntity, InPersonMeetingEntity, InviteeSpecifiedLocationEntity, MeetingLocationEntity, LocationType, MicrosoftTeamsConferenceData, MicrosoftTeamsConferenceEntity, OutboundCallEntity, ZoomConferenceDataEntity, ZoomConferenceEntity } from "../../src/types";
+import faker from 'faker'
+import {
+  ConferenceStatus, CustomLocationEntity, GoogleConferenceEntity, GoToMeetingConferenceData,
+  GoToMeetingConferenceEntity, InboundCallEntity, InPersonMeetingEntity, InviteeSpecifiedLocationEntity,
+  MeetingLocationEntity, LocationType, MicrosoftTeamsConferenceData, MicrosoftTeamsConferenceEntity,
+  OutboundCallEntity, ZoomConferenceDataEntity, ZoomConferenceEntity } from 'src/types'
 
 export default class LocationFactory {
   public static createEntity(locationType?: LocationType): MeetingLocationEntity {

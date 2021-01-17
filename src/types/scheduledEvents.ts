@@ -1,4 +1,4 @@
-import { Pagination } from "."
+import { Pagination } from '.'
 
 export enum LocationType {
   InPersonMeeting = 'physical',

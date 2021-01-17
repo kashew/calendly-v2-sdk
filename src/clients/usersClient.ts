@@ -1,7 +1,7 @@
-import { AxiosResponse } from "axios";
-import BaseClient from "./baseClient";
+import { AxiosResponse } from 'axios'
+import BaseClient from './baseClient'
 import * as dotenv from 'dotenv'
-import { Token, User, UserEntity } from "../types";
+import { Token, User, UserEntity } from 'src/types'
 
 export default class UsersClient extends BaseClient {
   constructor(token: Token) {

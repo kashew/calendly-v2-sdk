@@ -1,7 +1,14 @@
-import { AxiosResponse } from 'axios';
-import BaseClient from './baseClient';
+import { AxiosResponse } from 'axios'
+import BaseClient from './baseClient'
 import * as dotenv from 'dotenv'
-import { ConferenceStatus, CustomLocation, CustomLocationEntity, GoogleConference, GoogleConferenceEntity, GoToMeetingConference, GoToMeetingConferenceEntity, MeetingLocation, MeetingLocationEntity, LocationType, ScheduledEvent, ScheduledEventEntity, ScheduledEventStatus, InPersonMeeting, InPersonMeetingEntity, InboundCall, InboundCallEntity, InviteeSpecifiedLocationEntity, InviteeSpecifiedLocation, MicrosoftTeamsConference, MicrosoftTeamsConferenceEntity, OutboundCall, OutboundCallEntity, ZoomConference, ZoomConferenceEntity, ScheduledEventList, ScheduledEventOptions, PaginationEntity, Token } from '../types'
+import {
+  ConferenceStatus, CustomLocation, CustomLocationEntity, GoogleConference, GoogleConferenceEntity,
+  GoToMeetingConference, GoToMeetingConferenceEntity, MeetingLocation, MeetingLocationEntity,
+  LocationType, ScheduledEvent, ScheduledEventEntity, ScheduledEventStatus, InPersonMeeting,
+  InPersonMeetingEntity, InboundCall, InboundCallEntity, InviteeSpecifiedLocationEntity,
+  InviteeSpecifiedLocation, MicrosoftTeamsConference, MicrosoftTeamsConferenceEntity, OutboundCall,
+  OutboundCallEntity, ZoomConference, ZoomConferenceEntity, ScheduledEventList,
+  ScheduledEventOptions, PaginationEntity, Token } from 'src/types'
 
 export default class ScheduledEventsClient extends BaseClient {
   constructor(token: Token) {

@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 import * as dotenv from 'dotenv'
-import { Invitee, InviteeEntity, InviteeList, InviteeOptions, InviteeStatus, PaginationEntity, Token } from '../types'
+import { Invitee, InviteeEntity, InviteeList, InviteeOptions, InviteeStatus, PaginationEntity, Token } from 'src/types'
 
 export default class ScheduledEventInviteesClient extends BaseClient {
   constructor(token: Token, scheduledEventUuid: string) {
