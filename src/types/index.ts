@@ -82,6 +82,8 @@ export {
 export {
   OrganizationMembership,
   OrganizationMembershipEntity,
+  OrganizationMembershipList,
+  OrganizationMembershipOptions,
   OrganizationRole
 } from './organizationMemberships'
 

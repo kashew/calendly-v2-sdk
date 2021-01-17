@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-import { OrganizationMembership, OrganizationMembershipEntity, OrganizationRole, Token } from 'src/types'
+import { OrganizationMembership, OrganizationMembershipEntity, OrganizationMembershipList, OrganizationMembershipOptions, OrganizationRole, PaginationEntity, Token } from 'src/types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 import { UsersClient } from '.'
@@ -22,6 +22,44 @@ export default class OrganizationMembershipsClient extends BaseClient {
     }
 
     return this.getOrganizationMembership(response.data.resource)
+  }
+
+  public async list(options: OrganizationMembershipOptions): Promise<OrganizationMembershipList> {
+    let response: AxiosResponse<{ collection: OrganizationMembershipEntity[], pagination: PaginationEntity }>
+
+    try {
+      response = await this.calendlyApi.get('/organization_memberships', {
+        params: {
+          organization: options.organization,
+          user: options.user,
+          count: options.count,
+          email: options.email,
+          page_token: options.pageToken
+        }
+      })
+    } catch (e) {
+      throw this.getCalendlyError(e)
+    }
+
+    const entities: OrganizationMembershipEntity[] = response.data.collection
+
+    const pagination = this.getPagination(response.data.pagination)
+    const collection = entities.map(entity => {
+      return this.getOrganizationMembership(entity)
+    })
+
+    return {
+      collection,
+      pagination
+    }
+  }
+
+  public async delete(uuid: string): Promise<void> {
+    try {
+      await this.calendlyApi.delete(`/organization_memberships/${uuid}`)
+    } catch (e) {
+      throw this.getCalendlyError(e)
+    }
   }
 
   private getOrganizationMembership(entity: OrganizationMembershipEntity): OrganizationMembership {
