@@ -106,6 +106,9 @@ export {
   WebhookSubscription,
   WebhookSubscriptionEntity,
   WebhookSubscriptionEvent,
+  WebhookSubscriptionList,
+  WebhookSubscriptionOptions,
+  WebhookSubscriptionCreateOptions,
   WebhookSubscriptionScope,
   WebhookSubscriptionState
 } from './webhookSubscriptions'

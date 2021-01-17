@@ -21,7 +21,11 @@ describe('.create', () => {
         reqheaders: {
           authorization: `${token.tokenType} ${token.accessToken}`
         }
-      }).post('/scheduling_links').reply(201, {
+      }).post('/scheduling_links', {
+        max_event_count: maxEventCount,
+        owner,
+        owner_type: ownerType
+      }).reply(201, {
         resource: schedulingLinkEntity
       })
     })
@@ -64,7 +68,11 @@ describe('.create', () => {
         reqheaders: {
           authorization: `${token.tokenType} ${token.accessToken}`
         }
-      }).post('/scheduling_links').reply(errorStatus, errorDetails)
+      }).post('/scheduling_links', {
+        max_event_count: maxEventCount,
+        owner,
+        owner_type: ownerType
+      }).reply(errorStatus, errorDetails)
     })
 
     it('returns a promise that rejects', async () => {

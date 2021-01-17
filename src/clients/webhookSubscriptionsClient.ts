@@ -1,6 +1,9 @@
 import * as dotenv from 'dotenv'
 import {
-  Token, WebhookSubscription, WebhookSubscriptionEntity, WebhookSubscriptionEvent,
+  PaginationEntity,
+  Token, WebhookSubscription, WebhookSubscriptionCreateOptions, WebhookSubscriptionEntity, WebhookSubscriptionEvent,
+  WebhookSubscriptionList,
+  WebhookSubscriptionOptions,
   WebhookSubscriptionScope, WebhookSubscriptionState
 } from 'src/types'
 import { AxiosResponse } from 'axios'
@@ -14,6 +17,24 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     super(token, baseUrl)
   }
 
+  public async create(options: WebhookSubscriptionCreateOptions): Promise<WebhookSubscription> {
+    let response: AxiosResponse<{ resource: WebhookSubscriptionEntity }>
+
+    try {
+      response = await this.calendlyApi.post('/webhook_subscriptions', {
+        url: options.url,
+        events: options.events,
+        organization: options.organization,
+        user: options.user,
+        scope: options.scope
+      })
+    } catch (e) {
+      throw this.getCalendlyError(e)
+    }
+
+    return this.getWebhookSubscription(response.data.resource)
+  }
+
   public async get(uuid: string): Promise<WebhookSubscription> {
     let response: AxiosResponse<{ resource: WebhookSubscriptionEntity }>
 
@@ -24,6 +45,37 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     }
 
     return this.getWebhookSubscription(response.data.resource)
+  }
+
+  public async list(options: WebhookSubscriptionOptions): Promise<WebhookSubscriptionList> {
+    let response: AxiosResponse<{ collection: WebhookSubscriptionEntity[], pagination: PaginationEntity }>
+
+    try {
+      response = await this.calendlyApi.get('/webhook_subscriptions', {
+        params: {
+          organization: options.organization,
+          user: options.user,
+          scope: options.scope,
+          count: options.count,
+          page_token: options.pageToken,
+          sort: options.sort
+        }
+      })
+    } catch (e) {
+      throw this.getCalendlyError(e)
+    }
+
+    const entities: WebhookSubscriptionEntity[] = response.data.collection
+
+    const pagination = this.getPagination(response.data.pagination)
+    const collection = entities.map(entity => {
+      return this.getWebhookSubscription(entity)
+    })
+
+    return {
+      collection,
+      pagination
+    }
   }
 
   private getWebhookSubscription(entity: WebhookSubscriptionEntity): WebhookSubscription {
