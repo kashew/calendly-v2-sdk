@@ -35,6 +35,14 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     return this.getWebhookSubscription(response.data.resource)
   }
 
+  public async delete(uuid: string): Promise<void> {
+    try {
+      await this.calendlyApi.delete(`/webhook_subscriptions/${uuid}`)
+    } catch (e) {
+      throw this.getCalendlyError(e)
+    }
+  }
+
   public async get(uuid: string): Promise<WebhookSubscription> {
     let response: AxiosResponse<{ resource: WebhookSubscriptionEntity }>
 

@@ -590,3 +590,70 @@ describe('.create', () => {
     })
   })
 })
+
+describe('.delete', () => {
+  const uuid = faker.random.alphaNumeric(16)
+
+  describe('when response status is no content', () => {
+    beforeAll(() => {
+      nock('https://api.calendly.com', {
+        reqheaders: {
+          authorization: `${token.tokenType} ${token.accessToken}`
+        }
+      }).delete(`/webhook_subscriptions/${uuid}`).reply(204)
+    })
+
+    it('returns a promise that resolves', async () => {
+      const result = client.delete(uuid)
+
+      await expect(result).resolves.toBeUndefined()
+    })
+  })
+
+  describe('when response status is not ok', () => {
+    const uuid = faker.random.alphaNumeric(8)
+    const errorStatus = faker.random.arrayElement([401,403,404,500])
+    const errorDetails = {
+      name: 'Error',
+      title: faker.lorem.word(),
+      message: faker.lorem.sentence(),
+      details: [
+        {
+          parameter: faker.lorem.word(),
+          message: faker.lorem.sentence()
+        },
+        {
+          parameter: faker.lorem.word(),
+          message: faker.lorem.sentence()
+        },
+        {
+          parameter: faker.lorem.word(),
+          message: faker.lorem.sentence()
+        }
+      ]
+    }
+
+    beforeAll(() => {
+      nock('https://api.calendly.com', {
+        reqheaders: {
+          authorization: `${token.tokenType} ${token.accessToken}`
+        }
+      }).delete(`/webhook_subscriptions/${uuid}`).reply(errorStatus, errorDetails)
+    })
+
+    it('returns a promise that rejects', async () => {
+      let result: CalendlyError
+
+      try {
+        await client.delete(uuid)
+      } catch (e) {
+        result = e as CalendlyError
+      }
+
+      expect(result.status).toEqual(errorStatus)
+      expect(result.title).toEqual(errorDetails.title)
+      expect(result.message).toEqual(errorDetails.message)
+      expect(result.details).toEqual(errorDetails.details)
+    })
+  })
+})
