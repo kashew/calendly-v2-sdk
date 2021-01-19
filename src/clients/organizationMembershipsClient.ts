@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import { OrganizationMembership, OrganizationMembershipEntity, OrganizationMembershipList, OrganizationMembershipOptions, OrganizationRole, PaginationEntity, Token } from 'src/types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
-import { UsersClient } from '.'
+import UsersClient from './usersClient'
 
 export default class OrganizationMembershipsClient extends BaseClient {
   constructor(token: Token) {

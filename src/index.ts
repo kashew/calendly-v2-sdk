@@ -8,4 +8,6 @@ export {
   SchedulingLinksClient,
   UsersClient,
   WebhookSubscriptionsClient
-} from 'src/clients'
+} from './clients'
+
+export * from './types'
