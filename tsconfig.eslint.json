@@ -2,15 +2,26 @@
   "compilerOptions": {
     "rootDir": ".",
     "esModuleInterop": true,
-    "module": "commonjs",
     "noImplicitAny": true,
-    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "src/*": [ "src/*" ]
+      "@/*": [
+        "src/*"
+      ],
+      "@": [
+        "src"
+      ]
     }
   },
-  "include": ["src/**/*", "test/**/*"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

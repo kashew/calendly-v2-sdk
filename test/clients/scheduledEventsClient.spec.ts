@@ -6,10 +6,10 @@ import {
   MicrosoftTeamsConference, MicrosoftTeamsConferenceEntity, OutboundCall,
   OutboundCallEntity, Pagination, ScheduledEvent, ScheduledEventList,
   ScheduledEventSort, ScheduledEventStatus, Token, ZoomConference, ZoomConferenceEntity
-} from 'src/types'
+} from '@/types'
 import { ScheduledEventFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import ScheduledEventsClient from 'src/clients/scheduledEventsClient'
+import CalendlyError from '@/errors/calendlyError'
+import ScheduledEventsClient from '@/clients/scheduledEventsClient'
 import faker from 'faker'
 import nock from 'nock'
 

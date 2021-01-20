@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Library to give developers a pleasurable integration experience with Calendly's v2 API",
   "main": "dist/index.js",
-  "module": "index.es.js",
+  "module": "dist/index.es.js",
   "files": [
     "dist"
   ],
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint -c .eslintrc.js --ext .ts src test",
-    "build": "rollup -c",
+    "build": "rm -rf dist && rollup -c",
     "watch": "rollup -cw",
     "prepare": "npm run test"
   },

@@ -1,4 +1,4 @@
-import { OrganizationMembershipEntity } from 'src/types'
+import { OrganizationMembershipEntity } from '@/types'
 import { UserFactory } from '.'
 import faker from 'faker'
 

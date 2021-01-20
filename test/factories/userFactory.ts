@@ -1,4 +1,4 @@
-import { UserEntity } from 'src/types'
+import { UserEntity } from '@/types'
 import faker from 'faker'
 
 export default class UserFactory {

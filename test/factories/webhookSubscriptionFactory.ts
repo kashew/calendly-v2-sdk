@@ -1,4 +1,4 @@
-import { WebhookSubscriptionEntity } from 'src/types'
+import { WebhookSubscriptionEntity } from '@/types'
 import faker from 'faker'
 
 export default class WebhookSubscriptionFactory {

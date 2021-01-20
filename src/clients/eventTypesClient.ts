@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import {
   EventType, EventTypeEntity, EventTypeList, EventTypeOptions, EventTypeType,
   Kind, PaginationEntity, PoolingType, Profile, ProfileEntity, ProfileType, Token
-} from 'src/types'
+} from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 

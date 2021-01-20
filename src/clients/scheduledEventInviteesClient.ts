@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import {
   Invitee, InviteeEntity, InviteeList, InviteeOptions,
   InviteeStatus, PaginationEntity, Token
-} from 'src/types'
+} from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 

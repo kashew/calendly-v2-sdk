@@ -1,7 +1,7 @@
-import { OrganizationInvitation, OrganizationInvitationList, OrganizationInvitationSort, OrganizationInvitationStatus, Pagination, Token } from 'src/types'
+import { OrganizationInvitation, OrganizationInvitationList, OrganizationInvitationSort, OrganizationInvitationStatus, Pagination, Token } from '@/types'
 import { OrganizationInvitationFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import { OrganizationInvitationsClient } from 'src'
+import CalendlyError from '@/errors/calendlyError'
+import { OrganizationInvitationsClient } from '@'
 import faker from 'faker'
 import nock from 'nock'
 

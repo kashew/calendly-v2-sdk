@@ -1,4 +1,4 @@
-import { Token } from 'src/types'
+import { Token } from '@/types'
 import faker from 'faker'
 
 export default class TokenFactory {

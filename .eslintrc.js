@@ -16,10 +16,10 @@ module.exports = {
     "eslint-plugin-prefer-arrow",
     "@typescript-eslint"
   ],
-  "ignorePatterns": [ ".eslintrc.js", "jest.config.js", "rollup.config.js" ],
+  "ignorePatterns": [".eslintrc.js", "jest.config.js", "rollup.config.js", "dist"],
   "rules": {
-    "semi": [ "error", "never" ],
-    "quotes": [ "error", "single" ],
-    "sort-imports": [ "error" ]
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "sort-imports": ["error"]
   }
 };

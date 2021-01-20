@@ -1,4 +1,4 @@
-import { InviteeEntity } from 'src/types'
+import { InviteeEntity } from '@/types'
 import faker from 'faker'
 
 export default class InviteeFactory {

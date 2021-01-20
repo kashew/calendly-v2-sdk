@@ -1,8 +1,8 @@
-import { Pagination, Token, WebhookSubscription, WebhookSubscriptionEvent, WebhookSubscriptionList, WebhookSubscriptionScope, WebhookSubscriptionState } from 'src/types'
+import { Pagination, Token, WebhookSubscription, WebhookSubscriptionEvent, WebhookSubscriptionList, WebhookSubscriptionScope, WebhookSubscriptionState } from '@/types'
 import { TokenFactory, WebhookSubscriptionFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import { WebhookSubscriptionSort } from 'src/types/webhookSubscriptions'
-import { WebhookSubscriptionsClient } from 'src'
+import CalendlyError from '@/errors/calendlyError'
+import { WebhookSubscriptionSort } from '@/types/webhookSubscriptions'
+import { WebhookSubscriptionsClient } from '@'
 import faker from 'faker'
 import nock from 'nock'
 

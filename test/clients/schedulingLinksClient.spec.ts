@@ -1,7 +1,7 @@
-import { SchedulingLink, SchedulingLinkOwnerType, Token } from 'src/types'
+import { SchedulingLink, SchedulingLinkOwnerType, Token } from '@/types'
 import { SchedulingLinkFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import SchedulingLinksClient from 'src/clients/schedulingLinksClient'
+import CalendlyError from '@/errors/calendlyError'
+import SchedulingLinksClient from '@/clients/schedulingLinksClient'
 import faker from 'faker'
 import nock from 'nock'
 

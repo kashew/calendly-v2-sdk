@@ -6,7 +6,7 @@ import {
   MeetingLocation, MeetingLocationEntity, MicrosoftTeamsConference, MicrosoftTeamsConferenceEntity,
   OutboundCall, OutboundCallEntity, PaginationEntity, ScheduledEvent,
   ScheduledEventEntity, ScheduledEventList, ScheduledEventOptions, ScheduledEventStatus,
-  Token, ZoomConference, ZoomConferenceEntity } from 'src/types'
+  Token, ZoomConference, ZoomConferenceEntity } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 

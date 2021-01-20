@@ -1,4 +1,4 @@
-import { SchedulingLinkEntity } from 'src/types'
+import { SchedulingLinkEntity } from '@/types'
 import faker from 'faker'
 
 export default class SchedulingLinkFactory {

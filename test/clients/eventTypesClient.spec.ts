@@ -1,7 +1,7 @@
-import { EventType, EventTypeList, EventTypeSort, EventTypeType, Kind, Pagination, PoolingType, ProfileType, Token } from 'src/types'
+import { EventType, EventTypeList, EventTypeSort, EventTypeType, Kind, Pagination, PoolingType, ProfileType, Token } from '@/types'
 import { EventTypeFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import EventTypesClient from 'src/clients/eventTypesClient'
+import CalendlyError from '@/errors/calendlyError'
+import EventTypesClient from '@/clients/eventTypesClient'
 import faker from 'faker'
 import nock from 'nock'
 

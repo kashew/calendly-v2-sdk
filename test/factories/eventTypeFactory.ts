@@ -1,4 +1,4 @@
-import { EventTypeEntity } from 'src/types'
+import { EventTypeEntity } from '@/types'
 import faker from 'faker'
 
 export default class EventTypeFactory {

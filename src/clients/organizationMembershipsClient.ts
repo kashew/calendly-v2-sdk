@@ -1,5 +1,7 @@
 import * as dotenv from 'dotenv'
-import { OrganizationMembership, OrganizationMembershipEntity, OrganizationMembershipList, OrganizationMembershipOptions, OrganizationRole, PaginationEntity, Token } from 'src/types'
+import {
+  OrganizationMembership, OrganizationMembershipEntity, OrganizationMembershipList,
+  OrganizationMembershipOptions, OrganizationRole, PaginationEntity, Token } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 import UsersClient from './usersClient'

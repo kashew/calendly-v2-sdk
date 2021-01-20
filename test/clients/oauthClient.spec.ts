@@ -1,6 +1,6 @@
-import { GrantType, IntrospectResponse, Token } from 'src/types'
-import OAuthClient from 'src/clients/oauthClient'
-import OAuthError from 'src/errors/oauthError'
+import { GrantType, IntrospectResponse, Token } from '@/types'
+import OAuthClient from '@/clients/oauthClient'
+import OAuthError from '@/errors/oauthError'
 import faker from 'faker'
 import nock from 'nock'
 

@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import {
   IntrospectResponse, IntrospectResponseEntity, OAuthErrorEntity,
   Token, TokenEntity, TokenOptions
-} from 'src/types'
+} from '../types'
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
 import OAuthError from '../errors/oauthError'
 

@@ -1,7 +1,7 @@
-import { Token, User } from 'src/types'
+import { Token, User } from '@/types'
 import { TokenFactory, UserFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import UsersClient from 'src/clients/usersClient'
+import CalendlyError from '@/errors/calendlyError'
+import UsersClient from '@/clients/usersClient'
 import faker from 'faker'
 import nock from 'nock'
 

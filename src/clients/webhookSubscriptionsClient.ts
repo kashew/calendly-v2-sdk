@@ -5,7 +5,7 @@ import {
   WebhookSubscriptionList,
   WebhookSubscriptionOptions,
   WebhookSubscriptionScope, WebhookSubscriptionState
-} from 'src/types'
+} from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 

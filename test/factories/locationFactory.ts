@@ -3,7 +3,7 @@ import {
   GoogleConferenceEntity, InPersonMeetingEntity, InboundCallEntity, InviteeSpecifiedLocationEntity,
   LocationType, MeetingLocationEntity, MicrosoftTeamsConferenceData, MicrosoftTeamsConferenceEntity,
   OutboundCallEntity, ZoomConferenceDataEntity, ZoomConferenceEntity
-} from 'src/types'
+} from '@/types'
 import faker from 'faker'
 
 export default class LocationFactory {

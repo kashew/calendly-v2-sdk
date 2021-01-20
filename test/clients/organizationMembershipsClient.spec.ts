@@ -1,7 +1,7 @@
-import { OrganizationMembership, OrganizationMembershipList, OrganizationRole, Pagination, Token } from 'src/types'
+import { OrganizationMembership, OrganizationMembershipList, OrganizationRole, Pagination, Token } from '@/types'
 import { OrganizationMembershipFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import { OrganizationMembershipsClient } from 'src'
+import CalendlyError from '@/errors/calendlyError'
+import { OrganizationMembershipsClient } from '@'
 import faker from 'faker'
 import nock from 'nock'
 

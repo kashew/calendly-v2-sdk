@@ -2,8 +2,8 @@ import {
   EventTypesClient, OAuthClient, OrganizationInvitationsClient, OrganizationMembershipsClient,
   ScheduledEventInviteesClient, ScheduledEventsClient, SchedulingLinksClient, UsersClient,
   WebhookSubscriptionsClient
-} from 'src'
-import { Token } from 'src/types'
+} from '@'
+import { Token } from '@/types'
 import { TokenFactory } from './factories'
 import faker from 'faker'
 

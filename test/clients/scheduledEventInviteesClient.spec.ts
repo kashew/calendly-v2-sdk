@@ -1,7 +1,7 @@
-import { Invitee, InviteeList, InviteeSort, InviteeStatus, Pagination, Token } from 'src/types'
+import { Invitee, InviteeList, InviteeSort, InviteeStatus, Pagination, Token } from '@/types'
 import { InviteeFactory, TokenFactory } from '../factories'
-import CalendlyError from 'src/errors/calendlyError'
-import ScheduledEventInviteesClient from 'src/clients/scheduledEventInviteesClient'
+import CalendlyError from '@/errors/calendlyError'
+import ScheduledEventInviteesClient from '@/clients/scheduledEventInviteesClient'
 import faker from 'faker'
 import nock from 'nock'
 

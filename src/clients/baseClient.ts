@@ -1,4 +1,4 @@
-import { CalendlyErrorEntity, Pagination, PaginationEntity, Token } from 'src/types'
+import { CalendlyErrorEntity, Pagination, PaginationEntity, Token } from '../types'
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import CalendlyError from '../errors/calendlyError'
 

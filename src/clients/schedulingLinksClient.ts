@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-import { SchedulingLink, SchedulingLinkCreateOptions, SchedulingLinkEntity, SchedulingLinkOwnerType, Token } from 'src/types'
+import { SchedulingLink, SchedulingLinkCreateOptions, SchedulingLinkEntity, SchedulingLinkOwnerType, Token } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 

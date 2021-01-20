@@ -1,4 +1,4 @@
-import { OAuthErrorEntity } from 'src/types'
+import { OAuthErrorEntity } from '../types'
 
 export default class OAuthError extends Error {
   public status: number

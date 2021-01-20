@@ -1,4 +1,4 @@
-import { EventMembership, LocationType, ScheduledEventEntity } from 'src/types'
+import { EventMembership, LocationType, ScheduledEventEntity } from '@/types'
 import { LocationFactory } from '.'
 import faker from 'faker'
 

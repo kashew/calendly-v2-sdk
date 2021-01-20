@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-import { Token, User, UserEntity } from 'src/types'
+import { Token, User, UserEntity } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
