@@ -9,3 +9,5 @@ export {
   UsersClient,
   WebhookSubscriptionsClient
 } from './clients'
+
+export * from './types'
