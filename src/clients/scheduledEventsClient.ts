@@ -10,6 +10,9 @@ import {
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing Scheduled Event resource data
+ */
 export default class ScheduledEventsClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -18,6 +21,10 @@ export default class ScheduledEventsClient extends BaseClient {
     super(token, baseUrl)
   }
 
+  /**
+   * Returns the Scheduled Event associated with the specified UUID
+   * @param uuid - UUID of Scheduled Event
+   */
   public async get(uuid: string): Promise<ScheduledEvent> {
     let response: AxiosResponse<{ resource: ScheduledEventEntity }>
 
@@ -30,6 +37,14 @@ export default class ScheduledEventsClient extends BaseClient {
     return this.getScheduledEvent(response.data.resource)
   }
 
+  /**
+   * Returns a list of Scheduled Events
+   * @param options - EventTypeOptions
+   * 
+   * @remarks
+   * * Pass `organization` parameter to return events for that organization (requires admin/owner privilege)
+   * * Pass `user` parameter to return events for a specific User
+   */
   public async list(options: ScheduledEventOptions): Promise<ScheduledEventList> {
     let response: AxiosResponse<{ collection: ScheduledEventEntity[], pagination: PaginationEntity }>
 

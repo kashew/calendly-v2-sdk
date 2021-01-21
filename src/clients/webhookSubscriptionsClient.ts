@@ -9,6 +9,9 @@ import {
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing Webhook Subscription resource data
+ */
 export default class WebhookSubscriptionsClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -17,6 +20,10 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     super(token, baseUrl)
   }
 
+  /**
+   * Creates a new Webhook Subscription
+   * @param options - WebhookSubscriptionCreateOptions
+   */
   public async create(options: WebhookSubscriptionCreateOptions): Promise<WebhookSubscription> {
     let response: AxiosResponse<{ resource: WebhookSubscriptionEntity }>
 
@@ -35,6 +42,10 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     return this.getWebhookSubscription(response.data.resource)
   }
 
+  /**
+   * Deletes the Webhook Subscription associated with the specified UUID
+   * @param uuid - UUID of Webhook Subscription
+   */
   public async delete(uuid: string): Promise<void> {
     try {
       await this.calendlyApi.delete(`/webhook_subscriptions/${uuid}`)
@@ -43,6 +54,10 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     }
   }
 
+  /**
+   * Returns the Webhook Subscription associated with the specified UUID
+   * @param uuid - UUID of Webhook Subscription
+   */
   public async get(uuid: string): Promise<WebhookSubscription> {
     let response: AxiosResponse<{ resource: WebhookSubscriptionEntity }>
 
@@ -55,6 +70,10 @@ export default class WebhookSubscriptionsClient extends BaseClient {
     return this.getWebhookSubscription(response.data.resource)
   }
 
+  /**
+   * Returns a list of Webhook Subscriptions
+   * @param options - WebhookSubscriptionOptions
+   */
   public async list(options: WebhookSubscriptionOptions): Promise<WebhookSubscriptionList> {
     let response: AxiosResponse<{ collection: WebhookSubscriptionEntity[], pagination: PaginationEntity }>
 

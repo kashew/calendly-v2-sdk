@@ -3,6 +3,9 @@ import { SchedulingLink, SchedulingLinkCreateOptions, SchedulingLinkEntity, Sche
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing Scheduling Link resource data
+ */
 export default class SchedulingLinksClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -11,6 +14,10 @@ export default class SchedulingLinksClient extends BaseClient {
     super(token, baseUrl)
   }
 
+  /**
+   * Creates a new Scheduling Link
+   * @param options - SchedulingLinkCreateOptions
+   */
   public async create(options: SchedulingLinkCreateOptions): Promise<SchedulingLink> {
     let response: AxiosResponse<{ resource: SchedulingLinkEntity }>
 

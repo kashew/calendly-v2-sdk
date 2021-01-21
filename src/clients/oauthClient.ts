@@ -6,6 +6,14 @@ import {
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
 import OAuthError from '../errors/oauthError'
 
+/**
+ * Client used for making various calls concerning OAuth.
+ * 
+ * @remarks
+ * This client cannot handle the various front-end calls that needs to happen 
+ * in order to get a code, but once you have a code, this client can handle
+ * the exchange for an access token along with subsequent refresh calls.
+ */
 export default class OAuthClient {
   private oauthApi: AxiosInstance
   private clientId: string
@@ -23,6 +31,13 @@ export default class OAuthClient {
     })
   }
 
+  /**
+   * Retrieve access token for use with accessing Calendly resources on behalf of an authenticated user
+   * @param options - TokenOptions
+   * 
+   * @remarks
+   * Access tokens expire after 2 hours.  Refresh tokens do not expire until they are used.
+   */
   public async token(options: TokenOptions) : Promise<Token> {
     let response: AxiosResponse<TokenEntity>
 
@@ -42,6 +57,10 @@ export default class OAuthClient {
     return this.getToken(response.data)
   }
 
+  /**
+   * Introspect an access/refresh token
+   * @param token - Can be either an access or a refresh token
+   */
   public async introspect(token: string): Promise<IntrospectResponse> {
     let response: AxiosResponse<IntrospectResponseEntity>
 
@@ -58,6 +77,10 @@ export default class OAuthClient {
     return this.getIntrospectResponse(response.data)
   }
 
+  /**
+   * Revoke an access/refresh token
+   * @param token - Can be either an access or a refresh token
+   */
   public async revoke(token: string): Promise<void> {
     try {
       await this.oauthApi.post('/oauth/revoke', {

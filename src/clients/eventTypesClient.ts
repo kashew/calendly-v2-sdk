@@ -6,6 +6,9 @@ import {
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing Event Type resource data
+ */
 export default class EventTypesClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -14,6 +17,10 @@ export default class EventTypesClient extends BaseClient {
     super(token, baseUrl)
   }
   
+  /**
+   * Returns the Event Type associated with the specified UUID
+   * @param uuid - UUID of Event Type
+   */
   public async get(uuid: string): Promise<EventType> {
     let response: AxiosResponse<{ resource: EventTypeEntity }>
 
@@ -26,6 +33,10 @@ export default class EventTypesClient extends BaseClient {
     return this.getEventType(response.data.resource)
   }
 
+  /**
+   * Returns all Event Types associated with a specified User
+   * @param options - EventTypeOptions
+   */
   public async list(options: EventTypeOptions): Promise<EventTypeList> {
     let response: AxiosResponse<{
       pagination: PaginationEntity,

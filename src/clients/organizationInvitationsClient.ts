@@ -6,6 +6,9 @@ import {
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing Organization Invitation resource data
+ */
 export default class OrganizationInvitationsClient extends BaseClient {
   constructor(token: Token, organizationUuid: string) {
     dotenv.config()
@@ -14,6 +17,13 @@ export default class OrganizationInvitationsClient extends BaseClient {
     super(token, `${baseUrl}/organizations/${organizationUuid}`)
   }
 
+  /**
+   * Creates a new Organization Invitation
+   * @param options - OrganizationInvitationCreateOptions
+   * 
+   * @remarks
+   * This action will send an email to the specified user, inviting them to join the organization.
+   */
   public async create(options: OrganizationInvitationCreateOptions): Promise<OrganizationInvitation> {
     let response: AxiosResponse<{ resource: OrganizationInvitationEntity }>
 
@@ -28,6 +38,13 @@ export default class OrganizationInvitationsClient extends BaseClient {
     return this.getOrganizationInvitation(response.data.resource)
   }
 
+  /**
+   * Deletes the Organization Invitation associated with the specified UUID
+   * @param uuid - UUID of Organization Invitation
+   * 
+   * @remarks
+   * Once deleted, the invitation link sent to the Invitee will no longer be valid.
+   */
   public async delete(uuid: string): Promise<void> {
     try {
       await this.calendlyApi.delete(`/invitations/${uuid}`)
@@ -36,6 +53,10 @@ export default class OrganizationInvitationsClient extends BaseClient {
     }
   }
 
+  /**
+   * Returns the Organization Invitation associated with the specified UUID
+   * @param uuid - UUID of Organization Invitation
+   */
   public async get(uuid: string): Promise<OrganizationInvitation> {
     let response: AxiosResponse<{ resource: OrganizationInvitationEntity }>
 
@@ -48,6 +69,10 @@ export default class OrganizationInvitationsClient extends BaseClient {
     return this.getOrganizationInvitation(response.data.resource)
   }
 
+  /**
+   * Returns a list of Organization Invitations
+   * @param options - OrganizationInvitationOptions
+   */
   public async list(options: OrganizationInvitationOptions = {}): Promise<OrganizationInvitationList> {
     let response: AxiosResponse<{ collection: OrganizationInvitationEntity[], pagination: PaginationEntity }>
 

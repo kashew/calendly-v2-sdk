@@ -6,6 +6,9 @@ import {
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing a Scheduled Event's Invitee resource data
+ */
 export default class ScheduledEventInviteesClient extends BaseClient {
   constructor(token: Token, scheduledEventUuid: string) {
     dotenv.config()
@@ -14,6 +17,10 @@ export default class ScheduledEventInviteesClient extends BaseClient {
     super(token, `${baseUrl}/scheduled_events/${scheduledEventUuid}`)
   }
 
+  /**
+   * Returns the Invitee (person invited to the event) associated with the specified UUID
+   * @param uuid - UUID of Invitee
+   */
   public async get(uuid: string): Promise<Invitee> {
     let response: AxiosResponse<{ resource: InviteeEntity }>
 
@@ -26,6 +33,10 @@ export default class ScheduledEventInviteesClient extends BaseClient {
     return this.getInvitee(response.data.resource)
   }
 
+  /**
+   * Returns a list of Invitees
+   * @param options - InviteeOptions
+   */
   public async list(options: InviteeOptions = {}): Promise<InviteeList> {
     let response: AxiosResponse<{ collection: InviteeEntity[], pagination: PaginationEntity }>
 

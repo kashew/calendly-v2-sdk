@@ -6,6 +6,9 @@ import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 import UsersClient from './usersClient'
 
+/**
+ * Client used for accessing Organization Membership resource data
+ */
 export default class OrganizationMembershipsClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -14,6 +17,10 @@ export default class OrganizationMembershipsClient extends BaseClient {
     super(token, baseUrl)
   }
 
+  /**
+   * Returns the Organization Membership associated with the specified UUID
+   * @param uuid - UUID of Organization Membership
+   */
   public async get(uuid: string): Promise<OrganizationMembership> {
     let response: AxiosResponse<{ resource: OrganizationMembershipEntity }>
 
@@ -26,6 +33,10 @@ export default class OrganizationMembershipsClient extends BaseClient {
     return this.getOrganizationMembership(response.data.resource)
   }
 
+  /**
+   * Returns a list of Organization Memberships
+   * @param options - OrganizationMembershipOptions
+   */
   public async list(options: OrganizationMembershipOptions): Promise<OrganizationMembershipList> {
     let response: AxiosResponse<{ collection: OrganizationMembershipEntity[], pagination: PaginationEntity }>
 
@@ -56,6 +67,15 @@ export default class OrganizationMembershipsClient extends BaseClient {
     }
   }
 
+  /**
+   * Deletes the Organization Membership associated with the specified UUID
+   * @param uuid
+   * 
+   * @remarks
+   * This action will effectively remove a user from an organization and will require the 
+   * authenticated user to have admin privileges.  If the Organization Membership is tied 
+   * to the organization owner, it cannot be deleted.
+   */
   public async delete(uuid: string): Promise<void> {
     try {
       await this.calendlyApi.delete(`/organization_memberships/${uuid}`)

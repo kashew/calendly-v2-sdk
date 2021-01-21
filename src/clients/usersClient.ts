@@ -3,6 +3,9 @@ import { Token, User, UserEntity } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
 
+/**
+ * Client used for accessing User resource data
+ */
 export default class UsersClient extends BaseClient {
   constructor(token: Token) {
     dotenv.config()
@@ -11,6 +14,10 @@ export default class UsersClient extends BaseClient {
     super(token, baseUrl)
   }
   
+  /**
+   * Returns the User associated with the specified UUID
+   * @param uuid - UUID of User
+   */
   public async get(uuid: string): Promise<User> {
     let response: AxiosResponse<{ resource: UserEntity }>
 
@@ -23,6 +30,9 @@ export default class UsersClient extends BaseClient {
     return UsersClient.getUser(response.data.resource)
   }
 
+  /**
+   * Returns basic information about the authenticated User
+   */
   public async me(): Promise<User> {
     let response: AxiosResponse<{ resource: UserEntity }>
 
