@@ -1,6 +1,6 @@
 {
-  "name": "calendly-v2-sdk",
-  "version": "1.0.0",
+  "name": "@kashew/calendly-v2-sdk",
+  "version": "0.0.0",
   "description": "Library to give developers a pleasurable integration experience with Calendly's v2 API",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -11,11 +11,17 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint -c .eslintrc.js --ext .ts src test",
-    "build": "rm -rf dist && rollup -c",
+    "build": "npm run test && rm -rf dist && rollup -c",
     "watch": "rollup -cw",
-    "prepare": "npm run test"
+    "prepare": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "calendly",
+    "api",
+    "v2",
+    "integration",
+    "sdk"
+  ],
   "author": "Patrick Smith <patrick.smith@kashew.net>",
   "license": "MIT",
   "devDependencies": {
