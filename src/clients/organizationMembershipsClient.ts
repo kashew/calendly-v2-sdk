@@ -69,7 +69,7 @@ export default class OrganizationMembershipsClient extends BaseClient {
 
   /**
    * Deletes the Organization Membership associated with the specified UUID
-   * @param uuid
+   * @param uuid - UUID of Organization Membership
    * 
    * @remarks
    * This action will effectively remove a user from an organization and will require the 

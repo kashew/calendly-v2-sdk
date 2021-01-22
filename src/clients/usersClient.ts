@@ -31,7 +31,7 @@ export default class UsersClient extends BaseClient {
   }
 
   /**
-   * Returns basic information about the authenticated User
+   * Returns the User associated with the Authenticated User
    */
   public async me(): Promise<User> {
     let response: AxiosResponse<{ resource: UserEntity }>
