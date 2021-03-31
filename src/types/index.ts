@@ -103,6 +103,8 @@ export {
 } from './users'
 
 export {
+  WebhookPayload,
+  WebhookPayloadEntity,
   WebhookSubscription,
   WebhookSubscriptionEntity,
   WebhookSubscriptionEvent,

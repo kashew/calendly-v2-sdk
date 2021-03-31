@@ -1,4 +1,16 @@
-import { Pagination } from '.'
+import { Invitee, InviteeEntity, Pagination } from '.'
+
+export type WebhookPayload = {
+  event: WebhookSubscriptionEvent
+  createdAt: Date
+  payload: Invitee
+}
+
+export type WebhookPayloadEntity = {
+  event: string
+  created_at: string
+  payload: InviteeEntity
+}
 
 export type WebhookSubscription = {
   uri: string

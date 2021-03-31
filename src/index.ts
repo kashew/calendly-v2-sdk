@@ -7,6 +7,7 @@ export {
   ScheduledEventInviteesClient,
   SchedulingLinksClient,
   UsersClient,
+  WebhookPayloadClient,
   WebhookSubscriptionsClient
 } from './clients'
 

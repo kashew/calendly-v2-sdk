@@ -19,6 +19,7 @@ import {
   ScheduledEventInviteesClient,
   SchedulingLinksClient,
   UsersClient,
+  WebhookPayloadClient,
   WebhookSubscriptionsClient
 } from '@kashew/calendly-v2-sdk'
 ```
@@ -296,6 +297,31 @@ const client = new UsersClient(token)
 `async me(): Promise<User>`
 > Calendly's v2 API Documentation:
 > **[Get Current User](https://calendly.stoplight.io/docs/api-docs/reference/calendly-api/openapi.yaml/paths/~1users~1me/get)**
+
+---
+
+## WebhookPayloadClient
+Client used for accessing Webhook Subscription resource data
+
+> More details about this client can be found on the Wiki page:<br />
+> **[Wiki - WebhookPayloadClient](https://github.com/kashew/calendly-v2-sdk/wiki/WebhookPayloadClient)**
+
+***Parameters***
+* **webhookSigningKey (string)** - Webhook Signing Key used to validate a webhook signature
+* **tolerance (number)** - Number of seconds that will be tolerated since the creation of the webhook payload
+
+***Example Usage***
+```typescript
+const webhookSigningKey = 'my_webhook_signing_key'
+const tolerance = 180 // (i.e. 3 minutes)
+
+const client = new WebhookPayloadClient(webhookSigningKey, tolerance)
+```
+
+### Method Signatures
+`async verify(webhookSignature: String, message: WebhookPayloadEntity): Promise<void>`
+> Calendly's v2 API Documentation:
+> **[Verify Webhook Signatures](https://calendly.stoplight.io/docs/api-docs/docs/D-API-Webhook-Signatures.md)**
 
 ---
 
