@@ -2,6 +2,10 @@
   "name": "@kashew/calendly-v2-sdk",
   "version": "1.0.0",
   "description": "Library to give developers a pleasurable integration experience with Calendly's v2 API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kashew/calendly-v2-sdk.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [

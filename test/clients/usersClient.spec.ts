@@ -19,7 +19,8 @@ describe('.me', () => {
     beforeAll(() => {
       nock('https://api.calendly.com', {
         reqheaders: {
-          authorization: `${token.tokenType} ${token.accessToken}`
+          authorization: `${token.tokenType} ${token.accessToken}`,
+          'user-agent': 'calendly-v2-sdk'
         }
       }).get('/users/me').reply(200, {
         resource: userEntity

@@ -12,7 +12,8 @@ export default abstract class BaseClient {
     this.calendlyApi = axios.create({
       baseURL: baseUrl,
       headers: {
-        'Authorization': `${this.token.tokenType} ${this.token.accessToken}`
+        'Authorization': `${this.token.tokenType} ${this.token.accessToken}`,
+        'User-Agent': 'calendly-v2-sdk'
       }
     })
   }
