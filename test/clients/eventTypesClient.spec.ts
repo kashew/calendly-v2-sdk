@@ -51,7 +51,8 @@ describe('.get', () => {
           name: eventTypeEntity.profile.name,
           owner: eventTypeEntity.profile.owner
         },
-        secret: eventTypeEntity.secret
+        secret: eventTypeEntity.secret,
+        customQuestions: []
       })
     })
   })
@@ -161,7 +162,8 @@ describe('.list', () => {
             name: eventTypeEntity1.profile.name,
             owner: eventTypeEntity1.profile.owner
           },
-          secret: eventTypeEntity1.secret
+          secret: eventTypeEntity1.secret,
+          customQuestions: []
         },
         {
           uri: eventTypeEntity2.uri,
@@ -184,7 +186,8 @@ describe('.list', () => {
             name: eventTypeEntity2.profile.name,
             owner: eventTypeEntity2.profile.owner
           },
-          secret: eventTypeEntity2.secret
+          secret: eventTypeEntity2.secret,
+          customQuestions: []
         },
         {
           uri: eventTypeEntity3.uri,
@@ -207,7 +210,8 @@ describe('.list', () => {
             name: eventTypeEntity3.profile.name,
             owner: eventTypeEntity3.profile.owner
           },
-          secret: eventTypeEntity3.secret
+          secret: eventTypeEntity3.secret,
+          customQuestions: []
         }
       ])
     })
@@ -254,7 +258,8 @@ describe('.list', () => {
               name: eventTypeEntity1.profile.name,
               owner: eventTypeEntity1.profile.owner
             },
-            secret: eventTypeEntity1.secret
+            secret: eventTypeEntity1.secret,
+            customQuestions: []
           }
         ])
       })
@@ -301,7 +306,8 @@ describe('.list', () => {
                 name: eventTypeEntity1.profile.name,
                 owner: eventTypeEntity1.profile.owner
               },
-              secret: eventTypeEntity1.secret
+              secret: eventTypeEntity1.secret,
+              customQuestions: []
             }
           ])
         })
@@ -348,7 +354,8 @@ describe('.list', () => {
                   name: eventTypeEntity1.profile.name,
                   owner: eventTypeEntity1.profile.owner
                 },
-                secret: eventTypeEntity1.secret
+                secret: eventTypeEntity1.secret,
+                customQuestions: []
               }
             ])
           })

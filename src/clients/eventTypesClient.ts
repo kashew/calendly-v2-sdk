@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv'
 import {
   EventType, EventTypeEntity, EventTypeList, EventTypeOptions, EventTypeType,
-  Kind, PaginationEntity, PoolingType, Profile, ProfileEntity, ProfileType, Token
+  Kind, PaginationEntity, PoolingType, Profile, ProfileEntity, ProfileType, Token,
+  CustomQuestion, CustomQuestionEntity
 } from '../types'
 import { AxiosResponse } from 'axios'
 import BaseClient from './baseClient'
@@ -87,6 +88,7 @@ export default class EventTypesClient extends BaseClient {
       descriptionPlain: data.description_plain,
       descriptionHtml: data.description_html,
       profile: this.getProfile(data.profile),
+      customQuestions: this.getCustomQuestions(data.custom_questions),
       secret: data.secret
     }
   }
@@ -97,5 +99,17 @@ export default class EventTypesClient extends BaseClient {
       name: data.name,
       owner: data.owner
     }
+  }
+
+  private getCustomQuestions(data: CustomQuestionEntity[]): CustomQuestion[] {
+    return data?.map(customQuestion => ({
+      name: customQuestion.name,
+      type: customQuestion.type,
+      position: customQuestion.position,
+      enabled: customQuestion.enabled,
+      required: customQuestion.required,
+      answerChoices: customQuestion.answer_choices,
+      includeOther: customQuestion.include_other
+    } as CustomQuestion)) ?? []
   }
 }
