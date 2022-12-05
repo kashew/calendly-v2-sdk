@@ -12,6 +12,8 @@ export {
   EventTypeSort,
   EventTypeType,
   Kind,
+  CustomQuestion,
+  CustomQuestionEntity,
   PoolingType,
   Profile,
   ProfileEntity,

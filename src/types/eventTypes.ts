@@ -37,6 +37,26 @@ export enum EventTypeSort {
   NameDescending = 'name:desc'
 }
 
+export type CustomQuestionEntity = {
+  name: string
+  type: string
+  position: number
+  enabled: boolean
+  required: boolean
+  answer_choices: string[]
+  include_other: boolean
+}
+
+export type CustomQuestion = {
+  name: string
+  type: string
+  position: number
+  enabled: boolean
+  required: boolean
+  answerChoices: string[]
+  includeOther: boolean
+}
+
 export type EventTypeEntity = {
   uri: string
   name: string
@@ -55,6 +75,7 @@ export type EventTypeEntity = {
   description_html: string
   profile: ProfileEntity
   secret: boolean
+  custom_questions: CustomQuestionEntity[]
 }
 
 export type EventTypeList = {
@@ -80,6 +101,7 @@ export type EventType = {
   descriptionHtml: string
   profile: Profile
   secret: boolean
+  customQuestions: CustomQuestion[]
 }
 
 export type EventTypeOptions = {

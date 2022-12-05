@@ -24,7 +24,8 @@ export default class EventTypeFactory {
         name: faker.name.firstName(),
         owner: faker.internet.url()
       },
-      secret: faker.random.boolean()
+      secret: faker.random.boolean(),
+      custom_questions: []
     }
   }
 }
